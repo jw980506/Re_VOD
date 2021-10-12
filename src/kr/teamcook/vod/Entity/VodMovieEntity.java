@@ -19,12 +19,13 @@ public class VodMovieEntity extends VodEntity {
 
     // 출력을 위한 toString
     public String toString() {
-        return "VOD명 : " + getVodName() + "\n" + "제작사 : " + getProduction() + "\n" +
+        return "번째 \n" + "VOD명 : " + getVodName() + "\n" + "제작사 : " + getProduction() + "\n" +
                 "장르 : " + getGenre() + "\n" + "ISBN : " + getIsbn() + "\n" +
                 "가격 : " + getPrice() + "\n" + "개봉년도 : " + getLaunchYear() + "\n" +
                 "평점 : " + getRating() + "\n" + "영화감독 : " + getDirector() + "\n" +
                 "영상길이(분) : " + getMovieLenght();
     }
+
 
     // getter and setter
     public String getDirector() {

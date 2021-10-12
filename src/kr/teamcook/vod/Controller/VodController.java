@@ -13,7 +13,8 @@ public class VodController {
     VodMovieEntity[] movie = new VodMovieEntity[10];
     VodTvEntity[] tv = new VodTvEntity[10];
 
-    int cnt = 0;    //전역변수 선언
+    int idx = 0;    //전역변수 선언
+
 
 
     // 등록
@@ -22,28 +23,22 @@ public class VodController {
 
         System.out.printf("VOD명 > ");
         String name = sc.nextLine();
-        System.out.println(name);
 
         System.out.printf("제작사 > ");
         String produc = sc.nextLine();
-        System.out.println(produc);
 
         System.out.printf("장르 > ");
         String gen = sc.nextLine();
-        System.out.println(gen);
 
         System.out.printf("가격 > ");
         int pri = Integer.parseInt(sc.nextLine());
-        System.out.println(pri);
 
         System.out.printf("개봉년도(yyyy) > ");
         int year = Integer.parseInt(sc.nextLine());
-        System.out.println(year);
 
         System.out.printf("평점 > ");
         float ting = sc.nextFloat();
         sc.nextLine();
-        System.out.println(ting);
 
         // ISBN 생성
         UUID isbn = UUID.randomUUID();
@@ -62,8 +57,8 @@ public class VodController {
             int lenght = Integer.parseInt(sc.nextLine());
 
             // 객체에 저장
-            movie[cnt] = new VodMovieEntity(name, produc, gen, isbn, pri, year, ting, direc, lenght);
-            cnt++;
+            movie[idx] = new VodMovieEntity(name, produc, gen, isbn, pri, year, ting, direc, lenght);
+            idx++;
             System.out.println("등록완료\n");
         }
 
@@ -76,8 +71,8 @@ public class VodController {
             int seri = Integer.parseInt(sc.nextLine());
 
             //객체에 저장
-            tv[cnt] = new VodTvEntity(name, produc, gen, isbn, pri, year, ting, pd, seri);
-            cnt++;
+            tv[idx] = new VodTvEntity(name, produc, gen, isbn, pri, year, ting, pd, seri);
+            idx++;
             System.out.println("등록완료\n");
         }
 
@@ -94,11 +89,44 @@ public class VodController {
         System.out.println("조회시작\n");
 
         System.out.printf("영화조회(1번), TV조회(2번) > ");
-
         int choice = Integer.parseInt(sc.nextLine());
 
-        if (choice == 1) {
-            System.out.println(movie.toString());
+        //
+        if (movie[idx] == null && tv[idx] == null) {
+            System.out.println("등록된 정보가 없습니다");
         }
-    }
+
+        // 영화 선택
+        else if (choice == 1) {
+            for (int i = 0; i < movie.length; i++) {
+                if (movie[i] != null) {
+                    System.out.println();
+                    System.out.println(i + 1 + movie[i].toString());
+                }
+            }
+        }
+
+        // Tv 선택
+        else if (choice == 2) {
+            for (int j = 0; j < tv.length; j++) {
+                if (tv[j] != null) {
+                    System.out.println();
+                    System.out.println(j + 1 + tv[j].toString());
+                }
+            }
+        }
+
+        else {
+            System.out.println("잘못입력하셨습니다");
+            Show();
+        }
+    }// 조회 끝
+
+    // 수정
+    public void Modify() {
+        System.out.println();
+        System.out.println("수정시작\n");
+
+
+    }// 수정 끝
 }
