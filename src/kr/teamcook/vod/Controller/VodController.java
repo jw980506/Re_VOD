@@ -91,13 +91,9 @@ public class VodController {
         System.out.printf("영화조회(1번), TV조회(2번) > ");
         int choice = Integer.parseInt(sc.nextLine());
 
-        //
-        if (movie[idx] == null && tv[idx] == null) {
-            System.out.println("등록된 정보가 없습니다");
-        }
 
         // 영화 선택
-        else if (choice == 1) {
+        if (choice == 1) {
             for (int i = 0; i < movie.length; i++) {
                 if (movie[i] != null) {
                     System.out.println();
