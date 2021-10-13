@@ -32,6 +32,11 @@ public class Test {
                 case 2: ctrl.Show();
                     break;
 
+                case 3: ctrl.Modify();
+                    break;
+
+                case 4: ctrl.Delete();
+                    break;
 
                 default:
                     System.out.println("프로그램을 종료합니다");
